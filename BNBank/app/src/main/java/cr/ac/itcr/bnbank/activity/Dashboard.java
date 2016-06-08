@@ -81,16 +81,16 @@ public class Dashboard extends AppCompatActivity
         if (id == R.id.nav_camera) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
-            Fragment fragment = new AddTransaction();
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_dashboard, fragment).commit();
+            /*Fragment fragment = new AddTransaction();
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_dashboard, fragment).commit();*/
 
         } else if (id == R.id.nav_slideshow) {
-            Fragment fragment = new EditTransactions();
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_dashboard, fragment).commit();
+           /* Fragment fragment = new EditTransactions();
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_dashboard, fragment).commit();*/
 
         }  else if (id == R.id.nav_send) {
-            Intent intent =  new Intent(getApplicationContext(),About.class);
-            startActivity(intent);
+           /* Intent intent =  new Intent(getApplicationContext(),About.class);
+            startActivity(intent);*/
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

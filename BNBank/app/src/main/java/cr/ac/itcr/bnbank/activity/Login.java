@@ -17,12 +17,16 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
 import cr.ac.itcr.bnbank.R;
 import cr.ac.itcr.bnbank.app.EndPoints;
 import cr.ac.itcr.bnbank.app.MyApplication;
+import cr.ac.itcr.bnbank.model.User;
 
 public class Login extends AppCompatActivity {
     private String TAG = AddTransaction.class.getSimpleName();
@@ -39,7 +43,7 @@ public class Login extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         etUser = (EditText)findViewById(R.id.etUser);
-        etPass = (EditText)findViewById(R.id.etUser);
+        etPass = (EditText)findViewById(R.id.etPassword);
         btnLogin = (Button) findViewById(R.id.btnLogin);
         lbSingUp = (TextView) findViewById(R.id.lbNeedAc);
 
@@ -53,13 +57,44 @@ public class Login extends AppCompatActivity {
                     e.show();
 
                 }
-                String endPoint= EndPoints.GET_USER.replace(":user",user);
+                String endPoint= EndPoints.LOGIN;
                 StringRequest strReq = new StringRequest(Request.Method.POST,
                         endPoint, new Response.Listener<String>() {
 
                     @Override
                     public void onResponse(String response) {
+                        Log.e(TAG, "response: " + response);
+
+                        try {
+                            JSONObject obj = new JSONObject(response);
+
+                            // check for error flag
+                            if (obj.getInt("statusCode") == 200) {
+
+                                JSONObject userObj = obj.getJSONObject("data");
+                                User user = new User(userObj.getString("user"),
+                                        userObj.getString("password"),
+                                        userObj.getString("_id"),
+                                        userObj.getString("email"));
+
+                                // storing user in shared preferences
+                               // MyApplication.getInstance().getPrefManager().storeUser(user);
+
+                                // start main activity
+                                Intent intent = new Intent(getApplicationContext(),Dashboard.class);
+                                startActivity(intent);
+
+                            } else {
+                                // login error - simply toast the message
+                                Toast.makeText(getApplicationContext(), "" + obj.getJSONObject("error").getString("message"), Toast.LENGTH_LONG).show();
+                            }
+
+                        } catch (JSONException e) {
+                            Log.e(TAG, "json parsing error: " + e.getMessage());
+                            Toast.makeText(getApplicationContext(), "Json parse error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
                     }
+
 
                 }, new Response.ErrorListener() {
 

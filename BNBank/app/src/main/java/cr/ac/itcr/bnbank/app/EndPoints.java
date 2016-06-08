@@ -20,5 +20,5 @@ public class EndPoints {
     public static final String EDIT_TRANSACTION = BASE_URL + "/api/sugef/transaction/edit";
     public static final String DELETE_TRANSACTION = BASE_URL + "/api/sugef/transaction/delete/:idTransaction";
     public static final String DISABLE_TRANSACTION = BASE_URL + "/api/sugef/transaction/disable";
-    public static final String LOGIN = BASE_URL + "/api/sugef/transaction/disable";
+    public static final String LOGIN = BASE_URL + "/api/sugef/users/login";
 }
