@@ -29,5 +29,16 @@ exports.newUser = function(doc, callback) {
 	repository.addDocument(params, function(res) {
 		callback(res);
 	});
-}
+};
+
+exports.postLogin = function(doc, callback) {
+	var params = {
+		query: {$and: [doc]},
+		collection: 'users'
+	};
+	repository.findLogin(params, function(data){
+		callback(data);
+	});
+};
+
 

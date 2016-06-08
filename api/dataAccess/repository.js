@@ -54,3 +54,7 @@ exports.updateCollection = function(params, callback){
 		}
 	);
 };
+
+exports.findLogin = function(params, callback) {
+	dbConnection.findForLogin(params, callback);
+}

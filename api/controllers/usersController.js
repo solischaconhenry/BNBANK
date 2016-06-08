@@ -18,3 +18,9 @@ exports.newUser = function(eRequest, eResponse) {
     });
 };
 
+exports.loginUser = function(eRequest, eResponse) {
+    usersService.postLogin(eRequest.body, function(data){
+        eResponse.send(data);
+    });
+};
+

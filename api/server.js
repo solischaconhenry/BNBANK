@@ -113,7 +113,7 @@ app.put('/api/sugef/transaction/disable', transactionController.disableTransacti
 
 
 /*
-Otorga o revoca privilegios de administrador de un usuario
+Available or Disable a transacition
   Entrada: 
         idUsuario,    // id del evento que se busca
         admin // 0 si se quiere quitar privilegios de administrador, 1 si se quiere hacer administrador
@@ -139,17 +139,37 @@ app.get('/api/sugef/users/all', usersController.getUsers);
 
 
 /*
- Devuelve todos los usuarios
- Entrada: ninguna
- Salida:
- { success   // éxito: true, fracaso: false
- data        // Array con la información de todos los usuarios
- statusCode // éxito: 200, fracaso: 400
+ Return all the users info
+ IN: username
+ Out:
+ { success   // success: true, fail: false
+ data        // Array with the all information of the users
+ statusCode // success: 200, fail: 400
  }
  */
 app.get('/api/sugef/users/:user', usersController.getUserById);
 
 
+/*
+ Return all the users info
+ IN: username
+ Out:
+ { success   // success: true, fail: false
+ data        // Array with the all information of the users
+ statusCode // success: 200, fail: 400
+ }
+ */
+
+app.post('/api/sugef/users/login', usersController.loginUser);
+/*
+ Return user info of a consult of user with their pass
+ In: {username:"data", password:""}
+ Out:
+ { success   // success: true, fail: false
+ data        // Array with the information of the user
+ statusCode // success: 200, fail: 400, fail search:404
+ }
+ */
 
  
 

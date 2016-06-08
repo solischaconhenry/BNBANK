@@ -296,3 +296,45 @@ exports.deleteDocuments = function(params, callback) {
           }); 
     });
 };
+
+exports.findForLogin = function(params, callback) {
+    params = setObjectId(params);
+    var dbUrl = 'mongodb://';
+    var dbConfig = readJsonFile();
+    // make the url connection
+    dbUrl = dbUrl.concat(dbConfig.params.host , ':',  dbConfig.params.port,  '/' , dbConfig.params.database);
+    //use the method connection for connect the server
+    MongoClient.connect(dbUrl, function(err, db){
+        //take back the request collection
+        var collection = db.collection(params.collection);
+        //find the documents
+        collection.findOne(params.query, function(err, doc) {
+            var res;
+            if (err){ //error connection
+                res = {
+                    success: false,
+                    data: null,
+                    statusCode: 400
+                };
+            }
+            else{ //success
+                if (doc) {
+                    res = {
+                        success: true,
+                        data: doc,
+                        statusCode: 200
+                    };
+                }else{ //registers not found
+                    res = {
+                        success: true,
+                        data: doc,
+                        statusCode: 404
+                    };
+                }
+
+            }
+            db.close();
+            callback(res);
+        });
+    });
+};
