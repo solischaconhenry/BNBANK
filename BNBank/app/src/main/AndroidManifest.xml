@@ -15,13 +15,8 @@
             android:name=".activity.Dashboard"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-        <activity android:name=".activity.LoginActivity" />
         <activity
             android:name=".activity.EditInfoTransaction"
             android:label="@string/title_activity_edit_info_transaction"
@@ -32,6 +27,23 @@
                 android:value="cr.ac.itcr.bnbank.activity.Dashboard" />
         </activity>
         <activity android:name=".activity.About"></activity>
+        <activity
+            android:name=".activity.Login"
+            android:label="@style/AppTheme"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.Register"
+            android:label="@style/AppTheme"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+
     </application>
 
 </manifest>
