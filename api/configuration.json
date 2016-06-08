@@ -1,0 +1,11 @@
+{
+	"title"    : "MongoDB Configuration File",
+	"description": "Configuration File with the Parameters for make the connection with MongoDB",
+	"params"     : {
+		"host": 		"localhost",
+		"port":		27017,
+		"user": 		"",
+		"password" : 	"",
+		"database": 	"sugef"
+	} 
+}

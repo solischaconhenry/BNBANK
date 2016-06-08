@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">BNBank</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="hint_name">Full Name</string>
+    <string name="hint_email">Email</string>
+    <string name="transaction">Type of Transaction</string>
+    <string name="rode">Rode</string>
+    <string name="active">Active</string>
+    <string name="add">ADD</string>
+    <string name="add_transaction">Add Transaction</string>
+    <string name="complete">Complete the Spaces</string>
+
+    <string-array name="transType">
+        <item>Debit</item>
+        <item>Credit</item>
+    </string-array>
+    <string name="title_activity_edit_info_transaction">EditInfoTransaction</string>
+    <string name="typeEdit">Type</string>
+    <string name="dateEdit">Date</string>
+    <string name="RodeEdit">Rode</string>
+    <string name="disable">Disable</string>
+</resources>
