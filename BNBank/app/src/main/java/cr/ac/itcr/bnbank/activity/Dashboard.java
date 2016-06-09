@@ -21,7 +21,8 @@ import cr.ac.itcr.bnbank.R;
 public class Dashboard extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         AddTransaction.OnFragmentInteractionListener,
-        EditTransactions.OnFragmentInteractionListener{
+        EditTransactions.OnFragmentInteractionListener,
+        ShowTransaction.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,19 +80,22 @@ public class Dashboard extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
+            Fragment fragment = new ShowTransaction();
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_dashboard, fragment).commit();
         } else if (id == R.id.nav_gallery) {
             Fragment fragment = new AddTransaction();
             getSupportFragmentManager().beginTransaction().replace(R.id.content_dashboard, fragment).commit();
 
         } else if (id == R.id.nav_slideshow) {
-            Fragment fragment = new EditTransactions();
+           Fragment fragment = new EditTransactions();
             getSupportFragmentManager().beginTransaction().replace(R.id.content_dashboard, fragment).commit();
 
         }  else if (id == R.id.nav_send) {
             Intent intent =  new Intent(getApplicationContext(),About.class);
             startActivity(intent);
+
         }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

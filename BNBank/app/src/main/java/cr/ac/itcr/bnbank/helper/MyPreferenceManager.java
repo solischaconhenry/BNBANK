@@ -32,7 +32,7 @@ public class MyPreferenceManager {
     private static final String KEY_USER_NAME = "user_name";
     private static final String KEY_USER_EMAIL = "user_email";
     private static final String KEY_USER_PASSWORD = "user_pass";
-
+    private static final String KEY_USER_TYPE = "user_type";
     // Constructor
     public MyPreferenceManager(Context context) {
         this._context = context;
@@ -46,6 +46,7 @@ public class MyPreferenceManager {
         editor.putString(KEY_USER_NAME, user.getUser());
         editor.putString(KEY_USER_EMAIL, user.getEmail());
         editor.putString(KEY_USER_PASSWORD, user.getPassword());
+        editor.putString(KEY_USER_TYPE, user.getType());
         editor.commit();
 
         Log.e(TAG, "User is stored in shared preferences. " + user.getUser() + ", " + user.getEmail());
@@ -53,13 +54,14 @@ public class MyPreferenceManager {
 
     public User getUser() {
         if (pref.getString(KEY_USER_ID, null) != null) {
-            String id, name, email, password;
+            String id, name, email, password,type;
             id = pref.getString(KEY_USER_ID, null);
             name = pref.getString(KEY_USER_NAME, null);
             email = pref.getString(KEY_USER_EMAIL, null);
             password = pref.getString(KEY_USER_PASSWORD, null);
+            type = pref.getString(KEY_USER_TYPE, null);
 
-            User user = new User(id, name, email, password);
+            User user = new User(name, password, id, email,type);
             return user;
         }
         return null;

@@ -21,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="server.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="160" column="3" selection-start-line="160" selection-start-column="3" selection-end-line="160" selection-end-column="3" />
+            <state relative-caret-position="351">
+              <caret line="162" column="54" selection-start-line="162" selection-start-column="54" selection-end-line="162" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -34,8 +34,13 @@
       <file leaf-file-name="usersService.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/businessLogic/usersService.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="663">
               <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
+=======
+            <state relative-caret-position="504">
+              <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
+>>>>>>> d74892b414b48a6eeac065fc71985bf4e6564aa2
               <folding />
             </state>
           </provider>
@@ -44,8 +49,13 @@
       <file leaf-file-name="repository.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataAccess/repository.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="884">
               <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
+=======
+            <state relative-caret-position="487">
+              <caret line="58" column="19" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="19" />
+>>>>>>> d74892b414b48a6eeac065fc71985bf4e6564aa2
               <folding />
             </state>
           </provider>
@@ -54,8 +64,18 @@
       <file leaf-file-name="usersController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/usersController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+            <state relative-caret-position="357">
+              <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="connection.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dataAccess/connection.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="389">
+              <caret line="328" column="38" selection-start-line="328" selection-start-column="38" selection-end-line="328" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -80,20 +100,19 @@
         <option value="$PROJECT_DIR$/controllers/eventosController.js" />
         <option value="$PROJECT_DIR$/controllers/usuariosController.js" />
         <option value="$PROJECT_DIR$/controllers/transactionController.js" />
-        <option value="$PROJECT_DIR$/dataAccess/connection.js" />
         <option value="$PROJECT_DIR$/dataAccess/repository.js" />
         <option value="$PROJECT_DIR$/businessLogic/transactionService.js" />
         <option value="$PROJECT_DIR$/businessLogic/usersService.js" />
         <option value="$PROJECT_DIR$/controllers/usersController.js" />
         <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/dataAccess/connection.js" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsBuildToolPackageJson" detection-done="true" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
@@ -190,6 +209,11 @@
           </PATH>
         </subPane>
       </pane>
+<<<<<<< HEAD
+=======
+      <pane id="Scratches" />
+      <pane id="Scope" />
+>>>>>>> d74892b414b48a6eeac065fc71985bf4e6564aa2
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -272,12 +296,20 @@
       <workItem from="1465088605881" duration="697000" />
       <workItem from="1465098254390" duration="98000" />
       <workItem from="1465367155078" duration="2354000" />
+<<<<<<< HEAD
       <workItem from="1465400317481" duration="587000" />
+=======
+      <workItem from="1465400637128" duration="816000" />
+>>>>>>> d74892b414b48a6eeac065fc71985bf4e6564aa2
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="19453000" />
+=======
+    <option name="totallyTimeSpent" value="19682000" />
+>>>>>>> d74892b414b48a6eeac065fc71985bf4e6564aa2
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -505,6 +537,7 @@
     <entry file="file://$PROJECT_DIR$/controllers/transactionsController.js" />
     <entry file="file://$PROJECT_DIR$/businessLogic/eventosService.js" />
     <entry file="file://$PROJECT_DIR$/controllers/eventosController.js" />
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/dataAccess/connection.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-40">
@@ -520,6 +553,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> d74892b414b48a6eeac065fc71985bf4e6564aa2
     <entry file="file://$PROJECT_DIR$/businessLogic/transactionService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="470">
@@ -534,26 +569,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/businessLogic/usersService.js">
+    <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="663">
           <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
+=======
+        <state relative-caret-position="351">
+          <caret line="162" column="54" selection-start-line="162" selection-start-column="54" selection-end-line="162" selection-end-column="54" />
+>>>>>>> d74892b414b48a6eeac065fc71985bf4e6564aa2
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/usersController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+        <state relative-caret-position="357">
+          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
+    <entry file="file://$PROJECT_DIR$/businessLogic/usersService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="160" column="3" selection-start-line="160" selection-start-column="3" selection-end-line="160" selection-end-column="3" />
+        <state relative-caret-position="504">
+          <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataAccess/repository.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="487">
+          <caret line="58" column="19" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataAccess/connection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="328" column="38" selection-start-line="328" selection-start-column="38" selection-end-line="328" selection-end-column="38" />
           <folding />
         </state>
       </provider>

@@ -26,6 +26,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import cr.ac.itcr.bnbank.R;
+import cr.ac.itcr.bnbank.adapter.ShowTransactionAdapter;
 import cr.ac.itcr.bnbank.adapter.lvTransactionAdapter;
 import cr.ac.itcr.bnbank.app.EndPoints;
 import cr.ac.itcr.bnbank.app.MyApplication;
@@ -34,17 +35,15 @@ import cr.ac.itcr.bnbank.model.Transaction;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link EditTransactions.OnFragmentInteractionListener} interface
+ * {@link ShowTransaction.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link EditTransactions#newInstance} factory method to
+ * Use the {@link ShowTransaction#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class EditTransactions extends Fragment {
+public class ShowTransaction extends Fragment {
     private String TAG = EditTransactions.class.getSimpleName();
-    private ArrayList<Transaction> transactionsArraylist; //array of transactions info
-    private lvTransactionAdapter mAdapter;  //custom adapter
-
-
+    private ArrayList<Transaction> transactionsArraylist; //global list
+    private ShowTransactionAdapter mAdapter; //adaptaer for the list view, use a custom adapter
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -56,7 +55,7 @@ public class EditTransactions extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public EditTransactions() {
+    public ShowTransaction() {
         // Required empty public constructor
     }
 
@@ -66,11 +65,11 @@ public class EditTransactions extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment EditTransactions.
+     * @return A new instance of fragment ShowTransaction.
      */
     // TODO: Rename and change types and number of parameters
-    public static EditTransactions newInstance(String param1, String param2) {
-        EditTransactions fragment = new EditTransactions();
+    public static ShowTransaction newInstance(String param1, String param2) {
+        ShowTransaction fragment = new ShowTransaction();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -91,22 +90,18 @@ public class EditTransactions extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_edit_transactions, container, false);
+        View view = inflater.inflate(R.layout.fragment_show_transaction, container, false);
 
         transactionsArraylist = new ArrayList<>();
-        //set the listview
-        ListView lvTransactions = (ListView)view.findViewById(R.id.lvTransactionsEdit);
-        //request the transactions
+        //set the list view
+        ListView lvTransactions = (ListView)view.findViewById(R.id.lvShowTransaction);
+        //execute the request to the api for obtain transactions values
         fetchTransactions();
 
-        //set with the array charged with the objects
-        mAdapter = new lvTransactionAdapter(getContext(),transactionsArraylist);
+        //set with the array charged with the objects, use a custom adapter
+        mAdapter = new ShowTransactionAdapter(getContext(),transactionsArraylist);
 
-        //set the listview
         lvTransactions.setAdapter(mAdapter);
-        //show message for the user
-        Snackbar snackbar = Snackbar.make(view.findViewById(R.id.coordinatorLayout),"Touch me for edit!", Snackbar.LENGTH_SHORT);
-        snackbar.show();
 
 
         return view;
@@ -150,9 +145,8 @@ public class EditTransactions extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
-    /**
-     * Search all the transactions for show in a list view
-     */
+
+
     private void fetchTransactions() {
 
         String endPoint = EndPoints.GET_TRANSACTIONS;
@@ -169,14 +163,14 @@ public class EditTransactions extends Fragment {
                     JSONObject obj = new JSONObject(response);
 
                     // check for error flag
-                    if (obj.getBoolean("success") == true) {
+                    if (obj.getBoolean("success") == true) {  //check if the result of consult is succesful
                         //convert the data in json array
                         JSONArray eventoArraylist = obj.getJSONArray("data");
                         String selfUserId = MyApplication.getInstance().getPrefManager().getUser().getUser();
                         for (int i = 0; i < eventoArraylist.length(); i++) {
                             JSONObject transObj = (JSONObject) eventoArraylist.get(i);
                             //move into the array an set the data to an object type transaction
-                            if(selfUserId.equals(transObj.getString("user")))
+                            if(selfUserId.equals(transObj.getString("user"))&& transObj.getInt("active")==1)
                             {
                                 Transaction cr = new Transaction();
                                 cr.set_id(transObj.getString("_id"));

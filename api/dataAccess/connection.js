@@ -326,7 +326,7 @@ exports.findForLogin = function(params, callback) {
                     };
                 }else{ //registers not found
                     res = {
-                        success: true,
+                        success: false,
                         data: doc,
                         statusCode: 404
                     };

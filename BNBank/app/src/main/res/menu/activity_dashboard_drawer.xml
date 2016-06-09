@@ -10,6 +10,7 @@
             android:id="@+id/nav_gallery"
             android:icon="@drawable/add_list"
             android:title="New Transaction" />
+
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/edit_list"

@@ -42,6 +42,7 @@ public class EditInfoTransaction extends AppCompatActivity {
         txtDate = (EditText)findViewById(R.id.txtEditDate);
         txtRode = (EditText)findViewById(R.id.txtEditRode);
 
+        //catch the parameter sent by EditTransaction
         Intent intent = getIntent();
         txtType.setText(intent.getStringExtra("type"));
         txtDate.setText(intent.getStringExtra("date"));
@@ -56,10 +57,11 @@ public class EditInfoTransaction extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //set the url of api request
                 String endPoint = EndPoints.EDIT_TRANSACTION.replace(":idTransaction", _id);
 
                 Log.e(TAG, "endpoint: " + endPoint);
-
+                //start the request fot edir the transaction
                 StringRequest strReq = new StringRequest(Request.Method.PUT,
                         endPoint, new Response.Listener<String>() {
 
@@ -76,7 +78,7 @@ public class EditInfoTransaction extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "VolleyLis error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }) {
-
+                    //new parametrs for transactions
                     @Override
                     protected Map<String, String> getParams() {
                         Map<String, String> params = new HashMap<String, String>();

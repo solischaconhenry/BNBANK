@@ -120,21 +120,23 @@ public class AddTransaction extends Fragment {
 
             }
         });
-
+        //create the nerw transactions
         btnAddTransaction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 rode = txtAddRode.getText().toString();
+                //check the require spaces
                 if(typeTransaction.isEmpty() || rode.isEmpty()){
                     Toast error = Toast.makeText(getContext(), R.string.complete,Toast.LENGTH_LONG);
                     error.show();
 
                 }
+                //set the ulr of the api
                 String endPoint = EndPoints.NEW_TRANSACTION;
 
                 Log.e(TAG, "endpoint: " + endPoint);
 
-
+                //star the request
                 StringRequest strReq = new StringRequest(Request.Method.POST,
                         endPoint, new Response.Listener<String>() {
 
@@ -143,6 +145,7 @@ public class AddTransaction extends Fragment {
                     }
                 }, new Response.ErrorListener() {
 
+                    ///if error do this
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         NetworkResponse networkResponse = error.networkResponse;
@@ -150,11 +153,14 @@ public class AddTransaction extends Fragment {
                         Toast.makeText(getContext(), "VolleyNewT error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }) {
+                    //obtain the user from share preferences
+                    String selfUserId = MyApplication.getInstance().getPrefManager().getUser().getUser();
 
+                    //put the parameters to send to the api
                     @Override
                     protected Map<String, String> getParams() {
                         Map<String, String> params = new HashMap<String, String>();
-                        params.put("user", "hsolicha");
+                        params.put("user", selfUserId);
                         params.put("date", actualDate);
                         params.put("type",typeTransaction);
                         params.put("rode",rode);

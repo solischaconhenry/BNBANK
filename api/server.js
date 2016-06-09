@@ -27,7 +27,7 @@ app.use(function (req, res, next) {
 //Start: Routing
 
 /*
-Devuelve todos los eventos
+Return all the events
   Entrada: ninguna
   Salida: 
         { success   // éxito: true, fracaso: false
@@ -113,11 +113,11 @@ app.put('/api/sugef/transaction/disable', transactionController.disableTransacti
 
 
 /*
-Available or Disable a transacition
-  Entrada: 
-        idUsuario,    // id del evento que se busca
+Available or Disable a transaction
+  in:
+        ,    // id del evento que se busca
         admin // 0 si se quiere quitar privilegios de administrador, 1 si se quiere hacer administrador
-  Salida: 
+  out:
         { success   // éxito: true, fracaso: false
            data        // éxito: null, fracaso: null
            statusCode // éxito: 200, fracaso: 400
@@ -126,12 +126,12 @@ Available or Disable a transacition
 app.post('/api/sugef/users/new', usersController.newUser);
 
 /*
-Devuelve todos los usuarios
-  Entrada: ninguna
-  Salida: 
-        { success   // éxito: true, fracaso: false
-           data        // Array con la información de todos los usuarios
-           statusCode // éxito: 200, fracaso: 400
+Return all the users
+  in: nothing
+  out:
+        { success   // success: true, fail: false
+           data        // Array with the information of all the users
+           statusCode // success: 200, fail: 400
         }
   */
 app.get('/api/sugef/users/all', usersController.getUsers);
