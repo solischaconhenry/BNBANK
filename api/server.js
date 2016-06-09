@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
-//define ubición del directorio principal
+//define the location of the main directory
 //app.use('/', express.static(__dirname + '/app'));
 
 app.use(function (req, res, next) {
@@ -27,100 +27,106 @@ app.use(function (req, res, next) {
 //Start: Routing
 
 /*
-Return all the events
-  Entrada: ninguna
-  Salida: 
-        { success   // éxito: true, fracaso: false
-           data        // Array con la información de todos los eventos
-           statusCode // éxito: 200, fracaso: 400
+Return all the transactions
+  Input: nothing
+  Output:
+        { success   // success: true, failure: false
+           data        // Array with the information of the all transactions
+           statusCode // success: 200, failure: 400
         }
   */
 app.get('/api/sugef/transaction/all', transactionController.getTransaction);
 
 
 /*
-Devuelve un único evento
-  Entrada: 
-        id:     // id del evento que se busca
-  Salida: 
-        { success   // éxito: true, fracaso: false
-           data        // éxito: información del evento buscado, fracaso: null
-           statusCode // éxito: 200, fracaso: 400
+Return an unique transaction
+ Input:
+        id:     // transaction id
+ Output:
+        { success   // success: true,failure: false
+           data        // success: transaction information sought, failure: null
+           statusCode // success: 200, failure: 400
         }
   */
 app.get('/api/sugef/transaction/:id', transactionController.getTransactionById);
 
 /*
-Agrega un nuevo evento
-  Entrada: 
+Add a new transaction
+ Input:
         {
-           tipoEvento, // tipo del evento a crear
-           nombre,      // nombre del evento
-           descripcion // descripción del evento
+           user, //  owner of the transaction
+           date, // date of the transaction
+           type // type of transaction
+           rode // rode of the transaction
         }
-  Salida: 
-        { success   // éxito: true, fracaso: false
-           data        // éxito: id del evento insertado, fracaso: null
-           message // éxito: 200, fracaso: 400
+ Output:
+        { success   // success: true, failure: false
+           data        // success: transaction id inserted, failure: null
+           message // success: 200, failure: 400
         }
   */
 app.post('/api/sugef/transaction/new', transactionController.newTransaction);
 
 /*
-Edita un evento
-  Entrada: 
+Edit an transaction
+ Input:
         {
-           idEvento,    // id del evento a editar, para ubicar el evento <-- Parámetro
-           tipoEvento, // carrera o caminata
-           nombre,     // carrera o caminata
-           descripcion // descripción del evento
+
+         date, // date of the transaction
+         type // type of  transaction
+         rode // rode of the transaction
+         id, //  transaction id
         }
-  Salida: 
-        { success   // éxito: true, fracaso: false
-           data        // éxito: null, fracaso: null
-           message // éxito: 200, fracaso: 400
+ Output:
+        { success   // success: true, failure: false
+           data        // success: null, failure: null
+           message // success: 200, failure: 400
         }
   */
 app.put('/api/sugef/transaction/edit', transactionController.editTransaction);
 
 /*
-Elimina un evento
-  Entrada: 
+Delete a transaction
+  Input:
         {
-           idEvento    // id del evento a editar, para ubicar el evento
+           id    // id of the transaction to delete
         }
-  Salida: 
-        { success   // éxito: true, fracaso: false
-           data        // éxito: null, fracaso: null
-           message // éxito: 200, fracaso: 400
+  Output:
+        { success   // success: true, failure: false
+           data        // success: null, failure: null
+           message // success: 200, failure: 400
         }
   */
 app.delete('/api/sugef/transaction/delete/:idTransaction', transactionController.deleteTransaction);
 
 
 /*
-Bloquea o desbloquea un usuario
-  Entrada: 
-        idUsuario,    // id del evento que se busca
-        bloqueado // 0 si se quiere desbloquear, 1 si se quiere bloquear
-  Salida: 
-        { success   // éxito: true, fracaso: false
-           data        // éxito: null, fracaso: null
-           statusCode // éxito: 200, fracaso: 400
+
+ Enable or Disable a transaction
+ Input:
+        idTransaction,    // transaction id that is sought
+        active // 0  if you want to Disable, 1 if you want to Enable
+ Output:
+        { success   // success: true, failure: false
+           data        // success: null, failure: null
+           statusCode // success: 200, failure: 400
         }
   */
 app.put('/api/sugef/transaction/disable', transactionController.disableTransaction);
 
 
 /*
-Available or Disable a transaction
+ Create a new user
   in:
-        ,    // id del evento que se busca
-        admin // 0 si se quiere quitar privilegios de administrador, 1 si se quiere hacer administrador
+        username   // username unique
+        password  // password of the user
+        email // email address of the user
+        type
+
   out:
-        { success   // éxito: true, fracaso: false
-           data        // éxito: null, fracaso: null
-           statusCode // éxito: 200, fracaso: 400
+        { success   // success: true, failure: false
+           data        // success: null, failure: null
+           statusCode // success: 200, failure: 400
         }
   */
 app.post('/api/sugef/users/new', usersController.newUser);
